@@ -14,12 +14,12 @@ IF EXIST "%calling_script_dir%\templogs\*.*" (
 )
 mkdir "%calling_script_dir%\templogs"
 cd ..\Hactool_based_programs
-IF NOT EXIST "..\NSC_Builder\keys.txt" (
+IF NOT EXIST "..\NSC_Builder\ztools\keys.txt" (
 	IF EXIST keys.dat (
-		copy keys.dat ..\NSC_Builder\keys.txt
+		copy keys.dat ..\NSC_Builder\ztools\keys.txt
 		goto:skip_keys_file_creation
 	) else IF EXIST keys.txt (
-		copy keys.txt ..\NSC_Builder\keys.txt
+		copy keys.txt ..\NSC_Builder\ztools\keys.txt
 		goto:skip_keys_file_creation
 	) else (
 		echo Fichiers clés non trouvé, veuillez suivre les instructions.
@@ -38,7 +38,7 @@ IF "%keys_file_path%"=="" (
 	echo Aucun fichier clés renseigné, le script va s'arrêter.
 	goto:endscript
 )
-copy "%keys_file_path%" ..\NSC_Builder\keys.txt
+copy "%keys_file_path%" ..\NSC_Builder\ztools\keys.txt
 :skip_keys_file_creation
 %calling_script_dir:~0,1%:
 cd "%calling_script_dir%"
